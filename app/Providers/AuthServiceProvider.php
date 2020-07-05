@@ -6,6 +6,9 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
 
+use Illuminate\Support\Facades\Schema;
+
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -29,5 +32,7 @@ class AuthServiceProvider extends ServiceProvider
         if (!app()->runningInConsole()) {
             Passport::routes();
         };
+        
+        Schema::defaultStringLength(191);
     }
 }
